@@ -67,32 +67,16 @@ resource "aws_iam_policy" "policy" {
   name = "poweruserpolicy"
   path = "/"
   description = "power user policy"
-  policy = <<EOF
-
-  {
+    policy = <<EOF
+{
     "Version": "2012-10-17",
     "Statement": [
         {
             "Effect": "Allow",
-            "NotAction": [
-                "iam:*",
-                "organizations:*",
-                "account:*"
-            ],
-            "Resource": "*"
-        },
-        {
-            "Effect": "Allow",
-            "Action": [
-                "iam:CreateServiceLinkedRole",
-                "iam:DeleteServiceLinkedRole",
-                "iam:ListRoles",
-                "organizations:DescribeOrganization",
-                "account:ListRegions"
-            ],
+            "Action": "*",
             "Resource": "*"
         }
     ]
-
+}
 EOF
 }
